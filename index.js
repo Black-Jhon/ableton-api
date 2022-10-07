@@ -1,12 +1,14 @@
-dotenv.config();
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import AuthRoute from "./Routes/Auth.js";
+import UserRoute from "./Routes/UserRoute.js";
+dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use("/auth", AuthRoute);
+app.use('/users', UserRoute)
 
 // DB Connection
 mongoose.connect(process.env.DB_CONNECTION)
